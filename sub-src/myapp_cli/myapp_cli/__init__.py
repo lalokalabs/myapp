@@ -89,7 +89,14 @@ def run_gunicorn(address, use_sentry, sentry_env, serve_static=False, reload_=Fa
         application.add_files(static_dir, prefix="/static/")
 
     ret = GunicornApplication(application, options).run()
-    return 
+    return
+
+@click.option("--name", default="dev")
+@click.command()
+def hello(name):
+    print("Hello,", name)
+
+cli.add_command(hello)
 
 cli.add_command(manage)
 cli.add_command(run_gunicorn)
