@@ -43,6 +43,21 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "djangomix",
     "myapp",
+
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail',
+
+    'modelcluster',
+    'taggit',
 ]
 
 if DEBUG:
@@ -57,6 +72,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
 CSRF_COOKIE_SAMESITE = 'None'
@@ -158,3 +174,10 @@ SIMPLE_CUSTOMIZE_MODE = env.str("SIMPLE_CUSTOMIZE_MODE", True)
 LOGIN_URL = "/login/start/"
 LOGIN_REDIRECT_URL = "/user/"
 LOGOUT_REDIRECT_URL = "/"
+
+if DEBUG:
+    CSRF_TRUSTED_ORIGINS = [
+        f'https://*.{os.environ["GITPOD_WORKSPACE_CLUSTER_HOST"]}',
+    ]
+
+WAGTAIL_SITE_NAME = "My App"
