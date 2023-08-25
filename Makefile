@@ -12,4 +12,4 @@ devdb: migrate
 
 .PHONY: run
 run:
-	poetry run myapp manage runserver
+	poetry run myapp manage runserver_plus
