@@ -2,12 +2,14 @@
 
 ```
 cp .env.example .env
-docker compose up
+make up
 ```
 
 In separate terminal, run:-
 
 ```
-poetry run myapp manage migrate
-poetry run myapp manage runserver
+make devdb
+make run
 ```
+
+Login to wagtail cms at `/cms/` and using username `admin` and password `picard data`.
