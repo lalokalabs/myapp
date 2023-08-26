@@ -3,4 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return render(request, "index.html")
+    context = {
+        "intro": "Hello world"
+    }
+    return render(request, "index.html", context)
